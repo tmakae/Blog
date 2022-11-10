@@ -1,4 +1,5 @@
 ---
+
 layout: "../../layouts/TravelPost.astro"
 title: "Botswana"
 description: "Our first international trip"
