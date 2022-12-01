@@ -1,0 +1,53 @@
+---
+import InfoCard from './InfoCard.astro';
+
+export interface Props {
+    posts: Record<string, any>[]
+}
+// Usage: <InfoCard title="" data={} />
+const { posts } = Astro.props;
+---
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-auto-rows: minmax(150px, auto);
+        grid-gap: 1em;
+    }
+    .item {
+     /* Demo-Specific Styles */
+    background: #d31818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Flex Fallback */
+    margin-left: 5px;
+    margin-right: 5px;
+    flex: 1 1 250px;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        {posts.map((post) => (
+            <div class="item">
+                <a style="text-decoration:none" href={post.url}>
+                    <InfoCard title={post.frontmatter.title} description={post.frontmatter.description}/>
+                </a>
+            </div>
+        ))}
+      </div>
+
+</body>
+</html> 

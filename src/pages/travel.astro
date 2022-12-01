@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import InfoCard from '../components/InfoCard.astro';
+import Grid from '../components/Grid.astro';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob('./travel/*.{md,mdx}')).sort(
@@ -35,17 +36,9 @@ const posts = (await Astro.glob('./travel/*.{md,mdx}')).sort(
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main >
 			<section>
-                <ul>
-					{posts.map((post) => (
-						<li >
-                            <a style="text-decoration:none" href={post.url}>
-                                <InfoCard title={post.frontmatter.title} description={post.frontmatter.description}/>
-                            </a>
-						</li>
-					))}
-				</ul>
+				<Grid posts={posts}/>
 			</section>
 		</main>
 		<Footer />

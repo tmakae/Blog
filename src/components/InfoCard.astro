@@ -16,7 +16,7 @@ const { title, description } = Astro.props;
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 60%;
+  
 }
 
 .card:hover {
@@ -26,6 +26,15 @@ const { title, description } = Astro.props;
 .container {
   padding: 12px 12px;
 }
+.max-lines {
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: auto;
+  max-height: 2.6em;
+  line-height: 1.8em;
+}
+
 </style>
 </head>
 <body>
@@ -35,7 +44,7 @@ const { title, description } = Astro.props;
   <div class="container">
     <img width={720} height={360} src="/placeholder-hero.jpg" alt="" />
     <h4><b>{title}</b></h4> 
-    <p>{description}</p> 
+    <p class="max-lines">{description}</p> 
   </div>
 </div>
 
