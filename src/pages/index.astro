@@ -37,10 +37,12 @@ const blogPost = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 			<section>
 				<Grid posts={travelPost}/>
 			</section>
-			<section>
-				<iframe src="https://flex.twilio.com" frameborder="0" style="width: 100%; height: 600%; "></iframe>
-			</section>
+
+			<h1>Flex</h1>
 		</main>
+		<div >
+			<iframe src="https://flex.twilio.com"  onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:800px;width:100%;border:none;overflow:hidden;"></iframe>
+		</div>
 		<Footer />
 	</body>
 </html>
